@@ -1,0 +1,48 @@
+group = "playbook"
+version = "1.0.0"
+
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		//maven { url "http://repo.spring.io/libs-release" }
+		//maven { url "http://repo.spring.io/milestone" }
+		//maven { url 'http://repo.spring.io/plugins-release' }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+ext {
+	// 여러개 한꺼번에 선언
+	lombokVersion = '1.16.18'
+	junitVersion = '4.12'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	compile('org.springframework.boot:spring-boot-starter-web-services')
+	compile("org.projectlombok:lombok:$lombokVersion")
+
+	compile("org.slf4j:slf4j-api:1.7.25")
+	compile("ch.qos.logback:logback-classic:1.2.3")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile("junit:junit:$junitVersion")
+}
