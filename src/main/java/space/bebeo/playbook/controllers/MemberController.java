@@ -19,8 +19,6 @@ public class MemberController {
         List<MemberContext> list = new ArrayList<MemberContext>();
 
         MemberContext context = new MemberContext();
-        context.setAge(1);
-        context.setName("zzzz");
 
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(context);
