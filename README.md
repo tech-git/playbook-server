@@ -132,16 +132,16 @@ items | desc  | 필수 확인 항목
 ### 10. 전체 설치 (디렉터리 생성, JDK 설치, Logstash설치 등)
 Develop - syntax  
 ```sh
-ansible-playbook -i inventories/대상서버군(develop) launcher.yml --extra-vars "host=서버 호스트"
+ansible-playbook -i inventories/대상서버군(develop) launcher.yml --limit `<host group name>`
 ```
 Develop - sample
 ```sh
-ansible-playbook -i inventories/logstash-develop launcher.yml --extra-vars "host=logstash-develop"
+ansible-playbook -i inventories/logstash-develop launcher.yml --limit logstash-develop
 ```
  
 Production - syntax
 ```sh
-ansible-playbook -i inventories/대상서버군(production) launcher.yml --extra-vars "host=서버 호스트"
+ansible-playbook -i inventories/대상서버군(production) launcher.yml --limit `<host group name>`
 ```
 Develop - sample
 ```sh
